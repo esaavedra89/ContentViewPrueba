@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CUXamarin2"
+             x:Class="CUXamarin2.MainPage"
+             Title="Page">
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel/>
+    </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <StackLayout 
+            Orientation="Horizontal" 
+            VerticalOptions="Center" 
+            Spacing="10">
+            <Image 
+                HeightRequest="23"
+                Margin="0,2,0,0"
+                Source="logoneobusiness.png"
+                VerticalOptions="Center"/>
+            <Label 
+                FontAttributes="Bold"
+                FontSize="Medium"
+                HorizontalOptions="Start"
+                LineBreakMode="TailTruncation"
+                Text="{Binding NombreSeccion}"
+                TextColor="White"
+                VerticalTextAlignment="Center"
+                x:Name="nombreSeccion"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem 
+            Command="{Binding HomeCommand}"
+            Icon="ic_home_white.png"
+            Order="Primary"
+            Priority="0"
+            x:Name="Home"/>
+        <ToolbarItem 
+            Command="{Binding PerfilCommand}"
+            Icon="ic_person_white.png"
+            Order="Secondary"
+            Priority="0"
+            Text="Perfil"
+            x:Name="Perfil"/>
+        <ToolbarItem 
+            Command="{Binding CerrarSesionAppCommand}"
+            Icon="ic_Salir.png"
+            Order="Secondary"
+            Priority="1"
+            Text="Salir"
+            x:Name="SalirApp"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        x:Name="StackLayoutPrincipal">
+        <!-- Place new controls here -->
+        <!--<local:ContentPruebaView/>-->
+    </StackLayout>
+</ContentPage>

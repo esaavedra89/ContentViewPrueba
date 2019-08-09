@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CUXamarin2"
+    x:Class="CUXamarin2.ContentPruebaView">
+    <ContentView.BindingContext>
+        <local:ContentPruebaViewModel/>
+    </ContentView.BindingContext>
+    <ContentView.Content>
+        <AbsoluteLayout
+            BackgroundColor="LightBlue"
+            HorizontalOptions="FillAndExpand" 
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                BackgroundColor="LightGreen"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand">
+                <Grid
+                    HorizontalOptions="FillAndExpand" 
+                    VerticalOptions="FillAndExpand"
+                    BackgroundColor="LightGray">
+                    <Label
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="0"
+                    Text="Please Login"
+                    HorizontalOptions="Center"/>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Text="Username"
+                    HorizontalOptions="Center"/>
+                    <Entry
+                    BackgroundColor="White"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Text="{Binding Username}"
+                    TextColor="Black"/>
+                    <Label
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Text="Password"
+                    HorizontalOptions="Center"/>
+                    <Entry
+                    BackgroundColor="White"
+                    Text="{Binding Password}"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    TextColor="Black"/>
+                    <Button
+                    BackgroundColor="LightGray"
+                    Command="{Binding LoginCommand}"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="3"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Login"
+                    TextColor="DarkBlue"/>
+                </Grid>
+            </StackLayout>
+            <StackLayout 
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+            IsVisible="{Binding Busy}" 
+            Padding="12">
+                <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding Busy}"
+                VerticalOptions="Center"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>
